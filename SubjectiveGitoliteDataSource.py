@@ -39,13 +39,16 @@ class SubjectiveGitoliteDataSource(SubjectiveDataSource):
 
     # ------------------ New Methods ------------------
     def get_icon(self):
-        """Return the SVG code for the Gitolite icon."""
-        return """
-<svg viewBox="0 0 24 24" fill="none" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-  <rect width="24" height="24" fill="#E84E31"/>
-  <text x="50%" y="50%" font-size="6" fill="white" text-anchor="middle" alignment-baseline="middle">GLT</text>
-</svg>
-        """
+        """Return SVG icon content, preferring a local icon.svg in the plugin folder."""
+        import os
+        icon_path = os.path.join(os.path.dirname(__file__), 'icon.svg')
+        try:
+            if os.path.exists(icon_path):
+                with open(icon_path, 'r', encoding='utf-8') as f:
+                    return f.read()
+        except Exception:
+            pass
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" fill="#E84E31"/><text x="12" y="14" font-size="6" fill="#fff" text-anchor="middle">GLT</text></svg>'
 
     def get_connection_data(self):
         """
