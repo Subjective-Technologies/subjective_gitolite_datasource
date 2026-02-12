@@ -1,4 +1,5 @@
 {
+  "description": "Clones Gitolite-managed repositories via SSH and persists source trees for downstream analysis/indexing.",
   "domainCategory": "Software Development",
   "subjectiveTechnologyElement": "DataSources",
   "publisher": "BrainBoost Ltd.",
@@ -9,7 +10,7 @@
     {
       "type": "splitList",
       "title": "Gitolite",
-      "text": "A Subjective data source for gitolite.",
+      "text": "Clones Gitolite-managed repositories via SSH and persists source trees for downstream analysis/indexing.",
       "image": {
         "src": "/subjective_gitolite_datasource/icon.svg",
         "alt": "Gitolite icon"
